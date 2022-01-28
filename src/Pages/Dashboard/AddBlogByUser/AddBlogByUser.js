@@ -3,9 +3,7 @@ import { Form, Alert } from "react-bootstrap";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import PendingRequest from "../PendingRequest/PendingRequest";
-import useAuth from "../../../Hooks/useAuth";
-const AddBlogs = () => {
-    const { user } = useAuth()
+const AddBlogByUser = () => {
     const [name, setName] = useState("");
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -41,7 +39,7 @@ const AddBlogs = () => {
 
         formData.append("category", category);
 
-        const api = "https://travel-blog-661cb.web.app/addblog";
+        const api = "https://travel-blog-661cb.web.app/addblogbyuser";
 
         fetch(api, {
             method: "POST",
@@ -60,6 +58,7 @@ const AddBlogs = () => {
                         setFlag(true)
                     }
                 }
+
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -69,15 +68,10 @@ const AddBlogs = () => {
     return (
         <div>
             <h1 className="my-3 text-center" >
-                Add Blog
+                Add your Blog
             </h1>
             <form onSubmit={handleSubmit}>
-                <input
-                    hidden
-                    required
-                    defaultValue={user.email}
-                    variant="standard"
-                />
+
                 <Form.Label>Name</Form.Label>
                 <input
                     label="Name"
@@ -145,14 +139,14 @@ const AddBlogs = () => {
                 <br />
 
 
-                <Button variant="outlined" type="submit" disbled={clicked}>
-                    {clicked ? "Adding Blog" : "Add blog"}
+                <Button variant="outlined" type="submit" disabled={clicked}>
+                    {clicked ? "Adding Blog" : "Add Blog"}
                 </Button>
 
             </form>
-            <PendingRequest flag={flag}></PendingRequest>
+            <PendingRequest flags={flag}></PendingRequest>
         </div>
     );
 };
 
-export default AddBlogs;
+export default AddBlogByUser;

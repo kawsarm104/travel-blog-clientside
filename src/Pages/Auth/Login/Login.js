@@ -23,12 +23,12 @@ const Login = () => {
   const location = useLocation();
   const {
     setUser,
-
+    signInWithGoogle,
     setIsLoading,
     loginWithEmailAndPassword,
   } = useFirebase();
   // console.log(isLoading)
-  const url = location.state?.from || "/dashboard";
+  const url = location.state?.from || "/";
   //hook form
   const {
     register,
@@ -64,6 +64,22 @@ const Login = () => {
     // console.log(data);
     setUser(data);
     // console.log(data.email);
+  };
+  // google login 
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+
+        navigate(url);
+        // console.log(location.state?.from,"google er te");
+
+        setUser(result.user);
+      })
+      .finally(() => {
+        // const success = true;
+        setIsLoading(false)
+      });
+
   };
 
   return (
@@ -132,6 +148,15 @@ const Login = () => {
           <Button type="submit" variant="outlined" disabled={isLogin} className="form-textField">
             {isLogin ? "Login...." : "Login"}
           </Button>
+          <div className="d-grid mb-2 mx-5 border">
+            <button
+              onClick={handleGoogleLogin}
+              className="btn btn-google btn-login text-uppercase fw-bold text-center"
+              type="submit"
+            >
+              <i className="fab fa-google me-2"></i> Sign in with Google
+            </button>
+          </div>
           <p
             // variant="primary"
 

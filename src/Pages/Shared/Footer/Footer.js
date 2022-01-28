@@ -1,117 +1,66 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Footer.css'
 
 const Footer = () => {
   return (
-    <div>
-      <div className="footer">
-        <div className="contain">
-          <div className="col">
-            <h1>Company</h1>
-            <ul>
-              <li>About</li>
-              <li>Mission</li>
-              <li>Services</li>
-              <li>Social</li>
-              <li>Get in touch</li>
-            </ul>
+
+
+    <div className="footer">
+      <div className="inner-footer">
+
+        <div className="footer-items">
+          <h1>Travel Blog</h1>
+          <p>We provide the best security and service</p>
+        </div>
+
+     
+        <div className="footer-items">
+          <h3>Quick Links</h3>
+          <div className="border1"></div> 
+          <ul>
+            <Link to="#"><li>Home</li></Link>
+            <Link to="#"><li>Search</li></Link>
+            <Link to="#"><li>Contact</li></Link>
+            <Link to="#"><li>About</li></Link>
+          </ul>
+        </div>
+
+        <div className="footer-items">
+          <h3>Country</h3>
+          <div className="border1"></div>  
+          <ul>
+            <Link to="#"><li>South Korea</li></Link>
+            <Link to="#"><li>Germany</li></Link>
+            <Link to="#"><li>Bali</li></Link>
+            <Link to="#"><li>Italy</li></Link>
+          </ul>
+        </div>
+
+        <div className="footer-items">
+          <h3>Contact us</h3>
+          <div className="border1"></div>
+          <ul>
+            <li><i className="fa fa-map-marker" aria-hidden="true"></i>Dhaka, Bangladesh</li>
+            <li><i className="fa fa-phone" aria-hidden="true"></i>+8801515247103</li>
+            <li><i className="fa fa-envelope" aria-hidden="true"></i>kawsarm104@gmail.com</li>
+          </ul>
+
+          <div className="social-media">
+            <Link to="#"><i className="fab fa-instagram"></i></Link>
+            <Link to="#"><i className="fab fa-facebook"></i></Link>
+            <Link to="#"><i className="fab fa-google-plus-square"></i></Link>
           </div>
-          <div className="col">
-            <h1>Products</h1>
-            <ul>
-              <li>About</li>
-              <li>Mission</li>
-              <li>Services</li>
-              <li>Social</li>
-              <li>Get in touch</li>
-            </ul>
-          </div>
-          <div className="col">
-            <h1>Accounts</h1>
-            <ul>
-              <li>About</li>
-              <li>Mission</li>
-              <li>Services</li>
-              <li>Social</li>
-              <li>Get in touch</li>
-            </ul>
-          </div>
-          <div className="col">
-            <h1>Resources</h1>
-            <ul>
-              <li>Webmail</li>
-              <li>Redeem code</li>
-              <li>WHOIS lookup</li>
-              <li>Site map</li>
-              <li>Web templates</li>
-              <li>Email templates</li>
-            </ul>
-          </div>
-          <div className="col">
-            <h1>Support</h1>
-            <ul>
-              <li>Contact us</li>
-              <li>Web chat</li>
-              <li>Open ticket</li>
-            </ul>
-          </div>
-          <div className="col social align-items-start">
-            <h1>Social</h1>
-            <ul>
-              <li>
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-                  style={{ width: "32px" }}
-                />
-              </li>
-              <li>
-                <img
-                  src="https://cdn-icons.flaticon.com/png/512/720/premium/720255.png?token=exp=1643175413~hmac=2307f66be589f7fd04dfcddcbe69ef19"
-                  style={{ width: "32px" }}
-                />
-              </li>
-              <li>
-                <img
-                  src="https://cdn-icons.flaticon.com/png/512/3256/premium/3256013.png?token=exp=1643175450~hmac=59d4c984f4a2393e3c523ea4d6617ff8"
-                  style={{ width: "32px" }}
-                />
-              </li>
-              <li>
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-                  style={{ width: "32px" }}
-                />
-              </li>
-              <li>
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-                  style={{ width: "32px" }}
-                />
-              </li>
-              <li>
-                <img
-                  src="https://cdn-icons.flaticon.com/png/512/720/premium/720255.png?token=exp=1643175413~hmac=2307f66be589f7fd04dfcddcbe69ef19"
-                  style={{ width: "32px" }}
-                />
-              </li>
-              <li>
-                <img
-                  src="https://cdn-icons.flaticon.com/png/512/3256/premium/3256013.png?token=exp=1643175450~hmac=59d4c984f4a2393e3c523ea4d6617ff8"
-                  style={{ width: "32px" }}
-                />
-              </li>
-              <li>
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-                  style={{ width: "32px" }}
-                />
-              </li>
-            </ul>
-          </div>
-          <div className="clearfix"></div>
         </div>
       </div>
+
+      <div className="footer-bottom">
+        Copyright &copy; kawsarm104@gmail.com
+      </div>
     </div>
+
+
+
   );
 };
 

@@ -9,12 +9,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 // material ui card end 
 
-const Blog = ({ blog }) => {
+const TopBlogs = ({ blog }) => {
 const { _id, name, day, image, writer, writerImg, desc1, desc2, facility, accommodation, date, category } = blog;
 
   return (
     <>
-      <div className="col-sm-12 col-md-4 mt-3 h-100 ">
+      <div className="col-12 mt-3 h-100">
         <Card className="" >
           <CardMedia
             component="img"
@@ -47,4 +47,4 @@ const { _id, name, day, image, writer, writerImg, desc1, desc2, facility, accomm
   );
 };
 
-export default Blog;
+export default TopBlogs;

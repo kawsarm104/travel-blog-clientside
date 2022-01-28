@@ -20,6 +20,14 @@ const useFirebase = () => {
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
+  // const signInUsingGoogle = () => {
+  //   setIsLoading(true);
+  //   const googleProvider = new GoogleAuthProvider();
+
+  //   return signInWithPopup(auth, googleProvider);
+  // };
+
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       // console.log(user);

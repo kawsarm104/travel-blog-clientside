@@ -142,17 +142,30 @@ const Dashboard = () => {
           {admin ? <>
 
 
+
+            <ListItem button >
+              <Nav.Link as={NavLink} to="/dashboard/addblogs">
+                Add Blogs
+              </Nav.Link>
+            </ListItem>
+            <ListItem button >
+              <Nav.Link as={NavLink} to="/dashboard/pendingrequest">
+                Pending Requests
+              </Nav.Link>
+            </ListItem>
             <ListItem button >
               <Nav.Link as={NavLink} to="/dashboard/makeadmin">
                 Make Admin
               </Nav.Link>
             </ListItem>
-            <ListItem button >
-              <Nav.Link as={NavLink} to="/dashboard/addblogs">
-                Add Blogs
-              </Nav.Link>
-            </ListItem></> :
+          </> :
             <>
+              <ListItem button>
+                <Nav.Link as={NavLink} to="/dashboard/addblogbyuser">
+                  Add blogs
+                </Nav.Link>
+
+              </ListItem>
               <ListItem button>
                 <Nav.Link as={NavLink} to="/dashboard/yourexperience">
                   Your Experience

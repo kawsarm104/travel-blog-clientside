@@ -12,7 +12,6 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import "./Header.css";
-// import logo from "../../../Assets/logo-10.png";
 import useAuth from "../../../Hooks/useAuth";
 import { Link, NavLink } from "react-router-dom";
 
@@ -53,9 +52,9 @@ const Header = () => {
               variant="h6"
               noWrap
               component="div"
-              sx={{ mr: 2, display: { xs: "none", md: "flex" ,color:"blue"} }}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              Travel Blog
+              <NavLink to="/" style={{ textDecoration: "none" }}>Travel Blog</NavLink>
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -88,30 +87,20 @@ const Header = () => {
                 }}
               >
                 <Link to='/'>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Home</Typography>
-                </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center" sx={{ color: "blue" }}>Home</Typography>
+                  </MenuItem>
                 </Link>
+                <Link to='/blogs'>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center" sx={{ color: "blue" }}>Blogs</Typography>
+                  </MenuItem>
+                </Link>
+
+
+
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Pricing</Typography>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Plan Your Trip</Typography>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                 
-                  <Typography textAlign="center" style={{textDecoration:"none"}}
-> <NavLink  to="/blogs" >Blogs</NavLink></Typography>
-                  
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Events</Typography>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Trending</Typography>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">About Us</Typography>
+                  <Typography textAlign="center" sx={{ color: "blue" }}>About Us</Typography>
                 </MenuItem>
               </Menu>
             </Box>
@@ -121,66 +110,33 @@ const Header = () => {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             >
-            <img width={160} src="{logo}" alt="" />
+              <img width={160} src="{logo}" alt="" />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               <Link className="text-decoration-none" to='/'>
                 <Button
                   className="text-dark"
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{ my: 2, color: "black", display: "block" }}
                 >
                   Home
                 </Button>
               </Link>
+
               <Button
                 className="text-dark"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
+              // style={{ textDecoration: "none" }}
+
               >
-                Explore
+                <Link to="/blogs" sx={{ color: "black" }}>Blogs</Link>
               </Button>
+
               <Button
                 className="text-dark"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Pricing
-              </Button>
-              <Button
-                className="text-dark"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Events
-              </Button>
-              <Button
-                className="text-dark"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Plan Your Trip
-              </Button>
-              <Button
-                className="text-dark"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-                style={{textDecoration:"none"}}
-                
-              >
-                <NavLink  to="/blogs">Blogs</NavLink>
-              </Button>
-              <Button
-                className="text-dark"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Trending
-              </Button>
-              <Button
-                className="text-dark"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
                 About Us
               </Button>
@@ -208,29 +164,18 @@ const Header = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {/* {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))} */}
+               
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Profile</Typography>
-                </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Account</Typography>
-                </MenuItem>
-                {admin ?<MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center"><NavLink to="/dashboard" style={{textDecoration:'none'}}>Dashboard</NavLink></Typography>
-                </MenuItem>:
-                null}
+                  <Typography textAlign="center"><NavLink to="/dashboard" style={{ textDecoration: 'none', color: 'black' }}>Dashboard</NavLink></Typography>
+                </MenuItem> 
                 {user?.email ? (
                   <MenuItem onClick={logOut}>
-                    <Typography textAlign="center">Logout</Typography>
+                    <Typography textAlign="center" sx={{ color: "black" }}>Logout</Typography>
                   </MenuItem>
                 ) : (
                   <Link to='/login' className="text-decoration-none">
                     <MenuItem>
-                      <Typography textAlign="center">Login</Typography>
+                      <Typography textAlign="center" sx={{ color: "black" }}>Login</Typography>
                     </MenuItem>
                   </Link>
                 )}

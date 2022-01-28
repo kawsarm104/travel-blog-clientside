@@ -18,18 +18,20 @@ const BlogDetails = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className="my-4">
         <Col sm={12} md={7}>
           <Card.Img variant="top" src={image} className="img-fluid" alt="advocate-image" />
 
         </Col>
         <Col sm={12} md={5}>
 
-          <div>
+          <div className=''>
             <h3>Name: {name}</h3>
             <h5>Specialized in: {category}</h5>
             <h5>Price: {price}</h5>
             <p className="text-justify">{facility}</p>
+            <p className="text-justify">{advocate?.description}</p>
+
           </div>
         </Col>
       </Row>

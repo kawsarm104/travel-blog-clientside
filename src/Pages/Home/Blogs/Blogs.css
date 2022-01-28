@@ -12,3 +12,6 @@
     padding: 5px;
     margin: 5px;
 }
+.blogs-class{
+    overflow-x: hidden;
+}

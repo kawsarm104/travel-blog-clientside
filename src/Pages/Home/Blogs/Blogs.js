@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Blog from './Blog';
 import './Blogs.css';
 // react spinner 
 import { css } from "@emotion/react";
 import { HashLoader } from "react-spinners";
+import TopBlogs from "./TopBlogs";
 // react spinner 
 
 const Blogs = () => {
@@ -20,7 +21,7 @@ const Blogs = () => {
         setBlogs(data.blogs);
         console.log(data.blogs)
         const count = data.count;
-        const pageNumber = Math.round(count / size);
+        const pageNumber = Math.ceil(count / size);
         setPageCount(pageNumber);
       });
   }, [page]);
@@ -51,30 +52,50 @@ const Blogs = () => {
   }
   return (
     <>
-      <div className=" d-flex justify-content-end">
-      </div>
 
       <Row className="mx-auto">
-        {blogs?.map((blog) => (
-          <Blog key={blog._id}
-            blog={blog}>
+        <Col sm={12} md={3}>
+          <div className=" d-flex justify-content-center">
+            <h3 className="text-primary my-4">Top Blogs</h3>
+          </div>
+          <Row className="mx-auto blogs-class">
+            {blogs?.slice(3, 7).map((blog) => (
+              <TopBlogs key={blog._id}
+                blog={blog}>
+              </TopBlogs>
 
-          </Blog>
+
+            ))}
+          </Row>
+        </Col>
+
+        <Col sm={12} md={9}>
+          <div className=" d-flex justify-content-center">
+            <h3 className="text-primary my-4">Our Blogs</h3>
+          </div>
+          <Row className="mx-auto blogs-class ">
+            {blogs?.map((blog) => (
+              <Blog key={blog._id}
+                blog={blog}>
+              </Blog>
 
 
-        ))}
-        <div className="pagination">
-          {[...Array(pageCount).keys()].map((number) => (
-            <button
-              className={number === page ? "selected" : ""}
-              key={number}
-              onClick={() => setPage(number)}
-            >
-              {number + 1}
-            </button>
-          ))}
-        </div>
+            ))}
+            <div className="pagination d-flex align-items-center justify-content-center ">
+              {[...Array(pageCount).keys()].map((number) => (
+                <button
+                  className={number === page ? "selected" : ""}
+                  key={number}
+                  onClick={() => setPage(number)}
+                >
+                  {number + 1}
+                </button>
+              ))}
+            </div>
+          </Row>
+        </Col>
       </Row>
+
     </>
   );
 };

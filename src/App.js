@@ -19,6 +19,8 @@ import Blogs from "./Pages/Home/Blogs/Blogs";
 import YourExperience from "./Pages/Dashboard/YourExperience/YourExperience";
 import AddBlogs from "./Pages/Dashboard/AddBlogs/AddBlogs";
 import Header from "./Pages/Shared/Header/Header";
+import PendingRequest from "./Pages/Dashboard/PendingRequest/PendingRequest";
+import AddBlogByUser from "./Pages/Dashboard/AddBlogByUser/AddBlogByUser";
 // react spinner 
 function App() {
   // react spinner 
@@ -99,6 +101,14 @@ function App() {
             <Route
               path="/dashboard/yourexperience"
               element={<YourExperience />}
+            ></Route>
+            <Route
+              path="/dashboard/pendingrequest"
+              element={<PendingRequest />}
+            ></Route>
+            <Route
+              path="/dashboard/addblogbyuser"
+              element={<AddBlogByUser />}
             ></Route>
 
           </Route>
